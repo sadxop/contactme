@@ -1,0 +1,83 @@
+/* импортируем шрифт */
+@import url("https://fonts.cdnfonts.com/css/american-captain-2");
+
+/* базовый стиль для body, устанавливаем шрифт, убираем отступы и задаем фон */
+body {
+  font-family: "American Captain", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* стиль для контактного блока, выравнивание текста по центру */
+.contact {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* стиль для анимации текста, задаем размер шрифта, жирность, скрываем переполнение и добавляем анимации */
+.typing-text {
+  font-size: 36px;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid white;
+  width: 0;
+  animation: typing 4s steps(40) 1s forwards, blink 0.75s step-end infinite 4s;
+}
+
+/* анимация печатания, увеличивает ширину текста от 0 до 100% */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* анимация мигания курсора, делает его прозрачным на 50% времени */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* стиль для иконок, задаем начальную прозрачность и смещение */
+.icons {
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* при наведении на контактный блок, иконки становятся видимыми и перемещаются */
+.contact:hover .icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* стиль для ссылок иконок, убираем подчеркивание и задаем цвет */
+.icons a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+/* стиль для svg иконок, задаем размер и анимацию при наведении */
+.icon svg {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* при наведении на иконку, увеличиваем её и меняем цвет */
+.icon:hover svg {
+  transform: scale(1.2);
+  fill: #1456a7;
+}
